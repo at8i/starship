@@ -1,0 +1,47 @@
+#Use custom format
+format = """
+$username$time$memory_usage
+$directory$character"""
+
+# Wait 10 milliseconds for starship to check files under the current directory.
+scan_timeout = 10
+
+# Disable the newline at the start of the prompt
+add_newline = false
+
+[username]
+style_user = "fg:#fbbc8a"
+style_root = "fg:#E4929F"
+format = "[   $user]($style) "
+disabled = false
+show_always = true
+
+[directory]
+style = "bold fg:#5bb200"
+truncation_length = 2
+truncation_symbol = "  …/"
+read_only = " "
+read_only_style =  "red"
+
+[time]
+disabled = false
+format = '[ 神 $time ]($style)'
+style =  "bold fg:#cb0101"
+use_12hr = true
+time_format = "%T"
+utc_time_offset = "local"
+time_range = ""
+
+[memory_usage]
+format = "[$symbol ${ram}(|${swap})]($style) "
+disabled = false
+threshold = -1
+symbol = "  "
+style =  "bold fg:#4593AA"
+
+[character]
+symbol = "❯"
+success_symbol = "[ ❯](fg:#4cbc8a) "
+error_symbol = "[✗  ❯]( fg:#AE5A3E) "
+vicmd_symbol = "[ ❯](fg:#96AEC3) "
+use_symbol_for_status = true
