@@ -1,0 +1,79 @@
+#Use custom format
+format = """
+[┌   ───────────────────────────────>](bg:#061A26 bold fg:227)$memory_usage
+[│   ────────────────────────────>](bg:#061A26 bold fg:#1EDA99)$time
+[│   ─────────────────────────>](bg:#061A26 bold fg:red)$username$directory
+[│ ﴅ  ─────────────────────>](bg:#061A26 bold fg:75)$battery
+[└─>](bg:#061A26 bold fg:#96AEC3)$character"""
+
+# Wait 10 milliseconds for starship to check files under the current directory.
+scan_timeout = 10
+
+# Disable the newline at the start of the prompt
+add_newline = false
+
+[username]
+style_user = "bg:#061A26 fg:#4593AA"
+style_root = "bg:#061A26 fg:#E4929F"
+format = "[   $user  ]($style) "
+disabled = false
+show_always = true
+
+[directory]
+style = "bg:#061A26 bold fg:#4593AA"
+truncation_length = 3
+truncation_symbol = "…/"
+read_only = " "
+read_only_style =  "red"
+
+[time]
+disabled = false
+format = '[ 神\[ $time \]  ]($style)'
+style =  "bg:#061A26 bold fg:#B35D24"
+use_12hr = true
+time_format = "%T"
+utc_time_offset = "local"
+time_range = ""
+
+[memory_usage]
+format = "[$symbol ${ram}( | ${swap})]($style) "
+disabled = false
+threshold = -1
+symbol = "    "
+style =  "bg:#061A26 bold fg:#4593AA"
+
+[character]
+symbol = "(∩｀-´)⊃━☆ﾟ.*･｡ﾟ ❯"
+success_symbol = "[➜(∩｀-´)⊃━☆ﾟ.*･｡ﾟ ❯](bg:#061A26 fg:#96AEC3) "
+error_symbol = "[✗ง\\( •̀_•́\\)ง ❯](bg:#061A26 fg:#AE5A3E) "
+vicmd_symbol = "[➜(∩｀-´)⊃━☆ﾟ.*･｡ﾟ ❯](bg:#061A26 fg:#96AEC3) "
+use_symbol_for_status = true
+
+[battery]
+full_symbol = "   "
+charging_symbol = "   "
+discharging_symbol = "         "
+
+[[battery.display]]  # "bold red" style when capacity is between 0% and 10%
+threshold = 10
+style = "fg:#BA261A  bg:#061A26 "
+
+[[battery.display]]  # "bold orange"  style when capacity is between 10% and 30%
+threshold = 30
+style = "fg:#E1652A bg:#061A26 "
+
+[[battery.display]]  # "bold yellow" style when capacity is between 30% and 50%
+threshold = 50
+style = "fg:#E5DE61  bg:#061A26 "
+
+[[battery.display]]  # "ice " style when capacity is between 50% and 70%
+threshold = 70
+style = "fg:#ACD5E0  bg:#061A26 "
+
+[[battery.display]]  # " Green " style when capacity is between 70% and 90%
+threshold = 90
+style = "fg:#64802E  bg:#061A26 "
+
+[[battery.display]]  # "White " style when capacity is between 90% and 100%
+threshold = 100
+style = "fg:#F1F2F3  bg:#061A26 "
