@@ -1,7 +1,7 @@
 #Use custom format
 format = """
 $username$time$memory_usage
-$directory$character"""
+$directory$git_branch$character"""
 
 # Wait 10 milliseconds for starship to check files under the current directory.
 scan_timeout = 10
@@ -45,3 +45,12 @@ success_symbol = "[ ❯](fg:#4cbc8a) "
 error_symbol = "[✗  ❯]( fg:#AE5A3E) "
 vicmd_symbol = "[ ❯](fg:#96AEC3) "
 use_symbol_for_status = true
+
+[git_branch]
+always_show_remote = false
+format =  "[$symbol$branch]($style) "
+symbol = " "
+style = " bold purple "
+truncation_length = 10
+truncation_symbol = "…"
+only_attached = false
